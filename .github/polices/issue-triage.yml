@@ -7,6 +7,9 @@ configuration:
     eventResponderTasks:
       - if:
           - payloadType: Issues
+              - isActivitySender:
+                user: 'arclares_microsoft'
+                issueAuthor: true # Optional
           - and:
               - isOpen
               - not:
