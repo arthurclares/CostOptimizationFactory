@@ -9,30 +9,6 @@ configuration:
           - payloadType: Pull_Request
           - and:
               - isOpen
-              - not:
-                  and:
-                    - isAssignedToSomeone
-                    - isLabeled
         then:
-          - if:
-              - bodyContains:
-                  pattern: [x] Migrating and Modernizing Virtual Machines to Azure
-            then:
-              - addLabel:
+          - addLabel:
                   label: MigrateVMs
-          - if:
-              - bodyContains:
-                  pattern: [x] Upskilling Plan
-            then:
-              - addLabel:
-                  label: UpskillingPlan
-          - if:
-              -not:
-                and:
-                  - bodyContains:
-                      pattern: branch
-                  - bodyContains:
-                      pattern: permission
-            then:
-              - addLabel:
-                  label: triage     
